@@ -1,0 +1,5 @@
+# Runtime dependencies. Everything runs locally; no paid or cloud services.
+streamlit>=1.49,<2.0
+requests>=2.31,<3.0
+pypdf>=4.2,<7.0
+scikit-learn>=1.4,<2.0
