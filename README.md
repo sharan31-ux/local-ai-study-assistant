@@ -150,12 +150,20 @@ make setup
 
 ### 3. Install and start Ollama
 
+Download the macOS app from [ollama.com/download](https://ollama.com/download) and launch it once.
+Launching the app starts the local server automatically, so no separate command is needed.
+
+Homebrew works too:
+
 ```bash
-brew install ollama          # or download the app from https://ollama.com/download
+brew install ollama
 ollama serve                 # leave this running in its own terminal tab
 ```
 
-If you installed the macOS app instead, launching it starts the server automatically.
+> **On Apple Silicon, check which Homebrew you have first.** `brew --prefix` should print
+> `/opt/homebrew`. If it prints `/usr/local`, your Homebrew is the Intel build running under
+> Rosetta 2, and `brew install ollama` will give you an emulated x86 binary — significantly slower,
+> and without Metal GPU acceleration. Use the official download instead.
 
 ### 4. Install a model
 
