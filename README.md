@@ -168,13 +168,20 @@ ollama serve                 # leave this running in its own terminal tab
 ### 4. Install a model
 
 ```bash
-ollama pull llama3.2         # ~2 GB, a good default on an M-series Mac
+ollama pull qwen2.5:7b       # ~4.7 GB, the recommended default
+
 # alternatives:
-ollama pull qwen2.5:7b       # stronger, needs more memory
-ollama pull phi3.5           # smaller and faster
+ollama pull qwen2.5:14b      # ~9 GB, better output if you have the memory
+ollama pull llama3.2         # ~2 GB, for machines with limited RAM
+ollama pull phi3.5           # ~2 GB, the fastest option
 
 ollama list                  # confirm what is installed
 ```
+
+**Prefer a 7B model if you can afford the memory.** Flashcards and quizzes ask the model to return
+strict JSON, and 3B models such as `llama3.2` and `phi3.5` fail that noticeably more often. The
+application handles malformed JSON without crashing — it shows the raw response instead — but you
+will regenerate more.
 
 Any installed model appears in the sidebar selector; you can switch between them at any time.
 
@@ -285,9 +292,9 @@ machine.
 - **Whole-document modes are truncated.** Summaries, flashcards and quizzes use the first ~12,000
   characters of the combined material so the request fits a typical local context window. The
   interface reports when truncation happens. Retrieval-based answering is not affected.
-- **Output quality depends on the model.** A 3B model on a laptop produces weaker material than a
-  large hosted model, and may occasionally return malformed JSON — the app shows the raw response
-  instead of crashing.
+- **Output quality depends on the model.** A small local model produces weaker material than a large
+  hosted one, and may occasionally return malformed JSON — the app shows the raw response instead of
+  crashing. The smaller the model, the more often this happens.
 - **No persistence.** Closing the browser tab discards the session; that is a privacy decision, not
   an oversight.
 - **Single user, local only.** There is no authentication, and the app is not intended to be exposed

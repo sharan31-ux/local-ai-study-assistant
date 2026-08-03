@@ -60,7 +60,7 @@ or performance numbers, because none were measured.
 
 | Decision | Reasoning | What I gave up |
 | --- | --- | --- |
-| **Ollama over a hosted API** | Privacy is the point of the project; also free and works offline. | Output quality — a local 3B model is weaker than a large hosted one. |
+| **Ollama over a hosted API** | Privacy is the point of the project; also free and works offline. | Output quality — a local 7B model is weaker than a large hosted one. |
 | **No LangChain or LlamaIndex** | The RAG pipeline here is four steps. Writing them myself means I can explain each one, and the dependency list stays tiny. | Some convenience helpers I'd have got for free. |
 | **TF-IDF instead of embeddings** | No model download, no vector store, no cost; scores are inspectable and easy to debug. | Semantic matching — paraphrased questions retrieve worse. |
 | **Injected `requests.Session`** | Makes the Ollama client testable without patching modules or running a fake server. | One extra constructor parameter. |
