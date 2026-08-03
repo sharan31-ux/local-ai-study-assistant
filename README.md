@@ -29,24 +29,17 @@ Supporting features:
 
 ---
 
-## Screenshots
+## Screenshot
 
-This repository ships without screenshots, because every screenshot of this application necessarily
-shows real course material. To add your own:
+![The study assistant summarising a lecture PDF with a local qwen2.5:7b model](docs/screenshots/app.png)
 
-1. Start the application with `make run` and generate a result from your own documents.
-2. Capture the browser window (`Cmd + Shift + 4` on macOS, `Shift + Super + S` on Linux).
-3. Save the image as `docs/screenshots/app.png`:
-   ```bash
-   mkdir -p docs/screenshots
-   ```
-4. Embed it in this section:
-   ```markdown
-   ![Local AI Study Assistant](docs/screenshots/app.png)
-   ```
+A lecture PDF loaded and summarised entirely on-device. The sidebar shows the live Ollama
+connection, the selected local model and the retrieval settings; the main panel reports how much
+text was extracted and warns when whole-document modes truncate it.
 
-Before committing, check that the captured window does not expose private or copyrighted course
-content. `.gitignore` excludes PDFs and generated study files, but it does not filter images.
+> If you capture your own, check the window first: `.gitignore` excludes PDFs and generated study
+> files, but it does not filter images, so private or copyrighted course material in a screenshot
+> would be committed.
 
 ---
 
@@ -241,7 +234,8 @@ local-ai-study-assistant/
 ├── tests/                          # Unit tests (no network, no Ollama)
 ├── docs/
 │   ├── architecture.md             # Detailed pipeline walkthrough
-│   └── portfolio-notes.md          # Interview and CV notes
+│   ├── portfolio-notes.md          # Interview and CV notes
+│   └── screenshots/                # Images used by this README
 ├── .github/workflows/ci.yml        # Lint and test on every push and pull request
 ├── .env.example
 ├── Makefile
