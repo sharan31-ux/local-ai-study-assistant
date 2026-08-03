@@ -94,13 +94,13 @@ def render_sidebar(config: AppConfig) -> tuple[str, AppConfig]:
         st.sidebar.error(error)
         st.sidebar.caption(
             "Install Ollama from https://ollama.com/download, then run "
-            "`ollama pull llama3.2` in a terminal."
+            "`ollama pull qwen2.5:7b` in a terminal."
         )
         selected_model = ""
     elif not models:
         st.sidebar.warning(
             "Ollama is running but no model is installed. "
-            "Run `ollama pull llama3.2` in a terminal, then refresh."
+            "Run `ollama pull qwen2.5:7b` in a terminal, then refresh."
         )
         selected_model = ""
     else:
