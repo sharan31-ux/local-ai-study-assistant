@@ -8,8 +8,15 @@ processing and model interaction happens locally.
 from __future__ import annotations
 
 import logging
+import sys
+from pathlib import Path
 
 import streamlit as st
+
+# Make the src directory available for Python imports
+PROJECT_ROOT = Path(__file__).resolve().parent
+SRC_DIR = PROJECT_ROOT / "src"
+sys.path.insert(0, str(SRC_DIR))
 
 from local_study_assistant.config import (
     DEFAULT_CHUNK_OVERLAP,
